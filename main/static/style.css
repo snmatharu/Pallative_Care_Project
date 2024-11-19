@@ -1,0 +1,99 @@
+/* Basic reset and layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Styling the form */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Button styling */
+.submit-btn {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Result and error messages */
+.result {
+    margin-top: 20px;
+    background-color: #d4edda;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    color: #155724;
+}
+
+.error {
+    margin-top: 20px;
+    background-color: #f8d7da;
+    padding: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    color: #721c24;
+}

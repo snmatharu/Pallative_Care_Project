@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Worker Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict Number of Healthcare Workers Needed</h1>
+        <form action="/predict" method="POST">
+            <div class="input-group">
+                <label for="Number_male">Number of Male:</label>
+                <input type="number" id="Number_male" name="Number_male" required>
+            </div>
+            <div class="input-group">
+                <label for="Number_female">Number of Female:</label>
+                <input type="number" id="Number_female" name="Number_female" required>
+            </div>
+            <div class="input-group">
+                <label for="Statistics_Canada_population">Statistics Canada Population:</label>
+                <input type="number" id="Statistics_Canada_population" name="Statistics_Canada_population" required>
+            </div>
+            <div class="input-group">
+                <label for="Physician_to_100000_population_ratio">Physician to 100,000 Population Ratio:</label>
+                <input type="number" id="Physician_to_100000_population_ratio" name="Physician_to_100000_population_ratio" required>
+            </div>
+            <div class="input-group">
+                <label for="Volume">Volume:</label>
+                <input type="number" id="Volume" name="Volume" required>
+            </div>
+            <div class="input-group">
+                <label for="Province/territory">Province/Territory:</label>
+                <select id="Province/territory" name="Province/territory" required>
+                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                    <option value="Prince Edward Island">Prince Edward Island</option>
+                    <option value="Nova Scotia">Nova Scotia</option>
+                    <option value="New Brunswick">New Brunswick</option>
+                    <option value="Quebec">Quebec</option>
+                    <option value="Ontario">Ontario</option>
+                    <option value="Manitoba">Manitoba</option>
+                    <option value="Saskatchewan">Saskatchewan</option>
+                    <option value="Alberta">Alberta</option>
+                    <option value="British Columbia">British Columbia</option>
+                    <option value="Canada">Canada</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="CategorySupplyKey">Category Supply Key:</label>
+                <select id="CategorySupplyKey" name="CategorySupplyKey" required>
+                    <option value="Diagnostic Imaging">Diagnostic Imaging</option>
+                    <option value="Oncology and Cancer Care">Oncology and Cancer Care</option>
+                    <option value="Surgical Interventions">Surgical Interventions</option>
+                    <option value="Emergency and Critical Care">Emergency and Critical Care</option>
+                </select>
+            </div>
+            <div class="submit-btn">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+        
+        {% if prediction is defined %}
+            <div class="result">
+                <h2>Predicted Number of Physicians Required: {{ prediction }}</h2>
+            </div>
+        {% elif error is defined %}
+            <div class="error">
+                <p>Error: {{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
